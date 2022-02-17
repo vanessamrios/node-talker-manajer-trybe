@@ -12,6 +12,7 @@ const { validateTalk, validateDate, validateRate } = require('./middlewares/vali
 const createTalker = require('./controllers/createTalker');
 const validadeToken = require('./middlewares/validadeToken');
 const editTalker = require('./controllers/editTalker');
+const deleteTalker = require('./controllers/deleteTalker');
 
 const talkerValidations = [validateName, validateAge, validateTalk, validateDate, validateRate];
 
@@ -45,6 +46,10 @@ app.post('/talker', validateToken, talkerValidations, createTalker);
 // req 05
 
 app.put('/talker/:id', validadeToken, talkerValidations, editTalker);
+
+// req 06
+
+app.delete('/talker/:id', validadeToken, deleteTalker);
 
 app.listen(PORT, () => {
   console.log('Online');
