@@ -13,6 +13,7 @@ const createTalker = require('./controllers/createTalker');
 const validadeToken = require('./middlewares/validadeToken');
 const editTalker = require('./controllers/editTalker');
 const deleteTalker = require('./controllers/deleteTalker');
+const searchTalker = require('./controllers/searchTalker');
 
 const talkerValidations = [validateName, validateAge, validateTalk, validateDate, validateRate];
 
@@ -30,6 +31,10 @@ app.get('/', (_request, response) => {
 // req 01
 
 app.get('/talker', getAllTalkers);
+
+// req 07
+
+app.get('/talker/search', validadeToken, searchTalker);
 
 // req 02
 
