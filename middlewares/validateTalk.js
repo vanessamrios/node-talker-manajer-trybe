@@ -23,7 +23,7 @@ function validateDate(req, res, next) {
 
 function validateRate(req, res, next) {
     const { talk: { rate } } = req.body;
-    if (!rate) {
+    if (rate === undefined) {
         res.status(400).send({ message: 
             'O campo "talk" é obrigatório e "watchedAt" e "rate" não podem ser vazios' });
     }

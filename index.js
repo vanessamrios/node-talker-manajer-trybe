@@ -10,6 +10,8 @@ const validateName = require('./middlewares/validateName');
 const validateAge = require('./middlewares/validateAge');
 const { validateTalk, validateDate, validateRate } = require('./middlewares/validateTalk');
 const createTalker = require('./controllers/createTalker');
+const validadeToken = require('./middlewares/validadeToken');
+const editTalker = require('./controllers/editTalker');
 
 const talkerValidations = [validateName, validateAge, validateTalk, validateDate, validateRate];
 
@@ -39,6 +41,10 @@ app.post('/login', validateEmail, validatePassword, login);
 // req 04
 
 app.post('/talker', validateToken, talkerValidations, createTalker);
+
+// req 05
+
+app.put('/talker/:id', validadeToken, talkerValidations, editTalker);
 
 app.listen(PORT, () => {
   console.log('Online');
