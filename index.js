@@ -25,9 +25,13 @@ app.get('/talker', getAllTalkers);
 
 app.get('/talker/:id', getTalkerById);
 
-// req 3
+// req 03
 
 app.post('/login', validateEmail, validatePassword, login);
+
+// req 04
+
+app.post('/talker, ')
 
 app.listen(PORT, () => {
   console.log('Online');
